@@ -186,7 +186,7 @@ namespace Wyam.Core.Pipelines
                     }
                     catch (Exception ex)
                     {
-                        _engine.Trace.Error("Error while executing module {0}: {1}", moduleName, ex.ToString());
+                        _engine.Trace.Error("Error while executing module {0} while processing {1}: {2}", moduleName, ((Document)documents[0]).Source,  ex.ToString());
                         documents = ImmutableArray<IDocument>.Empty;
                         _engine.DocumentCollection.Set(Name, documents);
                         break;
